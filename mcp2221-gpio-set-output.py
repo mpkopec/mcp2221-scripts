@@ -12,11 +12,11 @@ def main():
     )
     parser.add_argument("-g", "--gpio",
                         nargs="+",
-                        choices=(0, 1, 2, 3),
+                        choices=('0', '1', '2', '3'),
                         required=True)
     parser.add_argument("-s", "--state",
                         nargs="+",
-                        choices=(0, 1),
+                        choices=('0', '1'),
                         required=True)
     args = parser.parse_args()
 
@@ -29,6 +29,9 @@ def main():
     gpio_dir_map = {}
     gpio_state_map = {}
     for gpio, state in zip(args.gpio, args.state):
+        gpio = int(gpio)
+        state = int(state)
+
         gpio_dir_map[f"gp{gpio}"] = "GPIO_OUT"
         gpio_state_map[f"gp{gpio}"] = state
 
