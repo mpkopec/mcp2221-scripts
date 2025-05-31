@@ -22,29 +22,6 @@ def main():
 
     mcp = EasyMCP2221.Device()
 
-    # chip_settings = mcp.send_cmd([0xb0, 0x00])
-
-    # for i, v in enumerate(chip_settings[:14]):
-    #     print(f"{i:02d}: {v:02X}")
-
-    # print(chip_settings[13]*2)
-
-    # print("=========================================")
-
-    # write_chip_settings = mcp.send_cmd([0xb1, 0x00, *chip_settings[4:13], 125])
-
-    # for i, v in enumerate(write_chip_settings[:14]):
-    #     print(f"{i:02d}: {v:02X}")
-
-    # print("=========================================")
-
-    # chip_settings = mcp.send_cmd([0xb0, 0x00])
-
-    # for i, v in enumerate(chip_settings[:14]):
-    #     print(f"{i:02d}: {v:02X}")
-
-    # print(chip_settings[13]*2)
-
     if len(args.state) != len(args.gpio):
         raise ValueError("The number of the given GPIOs needs to be equal to the "
                          "number of states.")
